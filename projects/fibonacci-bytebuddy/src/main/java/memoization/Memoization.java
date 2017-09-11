@@ -12,7 +12,7 @@ import static net.bytebuddy.matcher.ElementMatchers.named;
 
 public class Memoization {
 
-    private Map<Integer, Long> cache;
+    private static Map<Integer, Long> cache;
 
     public Memoization() {
         this.cache = new HashMap<>();
