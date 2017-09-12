@@ -1,8 +1,8 @@
 package org.ncomet.fibonaccispringaop.service;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class FibonacciService {
 
     public long compute(int n) {
