@@ -7,7 +7,7 @@
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>AspectJ with agent fibonacci</name>
+    <name>AspectJ compile time fibonacci</name>
 
     <dependencies>
         <dependency>
