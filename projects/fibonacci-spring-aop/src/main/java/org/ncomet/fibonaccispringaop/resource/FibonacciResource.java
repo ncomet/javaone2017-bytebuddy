@@ -26,6 +26,10 @@ public class FibonacciResource {
         stopWatch.start();
         long result = fibonacciService.compute(n);
         stopWatch.stop();
-        return ResponseEntity.ok("fibonacci(" + n + ") = " + result + "<br/> It took " + stopWatch.getLastTaskTimeMillis() + "ms");
+        StopWatch stopWatch2 = new StopWatch();
+        stopWatch2.start();
+        fibonacciService.compute(n);
+        stopWatch2.stop();
+        return ResponseEntity.ok("fibonacci(" + n + ") = " + result + "<br/> The first time, it took " + stopWatch.getLastTaskTimeMillis() + "ms <br/>The second time, " + stopWatch2.getLastTaskTimeMillis() + "ms");
     }
 }

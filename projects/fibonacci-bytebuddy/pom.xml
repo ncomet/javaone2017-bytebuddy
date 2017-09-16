@@ -62,6 +62,13 @@ THE POSSIBILITY OF SUCH DAMAGE.
             <artifactId>byte-buddy</artifactId>
             <version>1.7.5</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.8.7</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <properties>
