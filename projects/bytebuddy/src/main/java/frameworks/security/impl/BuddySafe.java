@@ -13,11 +13,6 @@ import net.bytebuddy.implementation.bind.annotation.SuperCall;
 import frameworks.security.annotation.Lock;
 import frameworks.security.interfaces.Safe;
 
-/**
- * LECTRA
- * BuddySafe class
- * @author n.comet
- */
 public class BuddySafe implements Safe {
 
     private String keyAttempt;

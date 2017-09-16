@@ -6,11 +6,6 @@ import net.bytebuddy.implementation.bind.annotation.Argument;
 import net.bytebuddy.implementation.bind.annotation.RuntimeType;
 import net.bytebuddy.implementation.bind.annotation.SuperCall;
 
-/**
- * LECTRA
- * GetterSetterInterceptor class
- * @author n.comet
- */
 public class GetterSetterInterceptor {
 
     @RuntimeType

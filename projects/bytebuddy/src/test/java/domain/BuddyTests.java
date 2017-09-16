@@ -17,11 +17,6 @@ import interceptors.GetterSetterInterceptor;
 
 import java.util.Collections;
 
-/**
- * LECTRA
- * BuddyTests class
- * @author n.comet
- */
 public class BuddyTests {
 
     @Test

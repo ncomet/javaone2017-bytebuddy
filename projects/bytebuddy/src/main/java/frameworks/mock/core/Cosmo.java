@@ -9,12 +9,6 @@ import static net.bytebuddy.matcher.ElementMatchers.isNative;
 import static net.bytebuddy.matcher.ElementMatchers.not;
 import static net.bytebuddy.matcher.ElementMatchers.returns;
 
-/**
- * LECTRA
- * Cosmo class
- *
- * @author n.comet
- */
 public class Cosmo {
 
 
