@@ -23,10 +23,10 @@ public class BuddyTests {
     public void java() {
         final Cat cat = new Cat();
         cat.setName("Garfield");
-        cat.feed("croquettes");
-        cat.feed("patée");
+        cat.feed("lasagna");
+        cat.feed("moar lasagna");
 
-        assertThat(cat.getStomach()).containsExactly("croquettes", "patée");
+        assertThat(cat.getStomach()).containsOnly("lasagna", "moar lasagna");
         assertThat(cat.getName()).isEqualTo("Garfield");
     }
 
@@ -41,10 +41,10 @@ public class BuddyTests {
                 .getLoaded().newInstance();
 
         cat.setName("Garfield");
-        cat.feed("croquettes");
-        cat.feed("patée");
+        cat.feed("lasagna");
+        cat.feed("moar lasagna");
 
-        assertThat(cat.getStomach()).containsExactly("croquettes", "patée");
+        assertThat(cat.getStomach()).containsOnly("lasagna", "moar lasagna");
         assertThat(cat.getName()).isEqualTo("Garfield");
     }
 
