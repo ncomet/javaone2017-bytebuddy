@@ -22,7 +22,7 @@ public class FibonacciTest {
         long start = System.nanoTime();
         long fibo = fibonacci.compute(42);
         long end = System.nanoTime();
-        // an estimate time in ns
+        // an estimated time in ns
         total += (end - start);
     }
 
