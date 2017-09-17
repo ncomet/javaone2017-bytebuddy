@@ -26,6 +26,12 @@ public class FibonacciTest {
         total += (end - start);
     }
 
+    @Test
+    public void invocationCounter() throws Exception {
+        fibonacci.compute(42);
+        System.out.println(fibonacci);
+    }
+
     @AfterClass
     public void afterTest() {
         System.out.println("******\nAverage time in ms : " + ((total / 50.0) / 1000000.0) + "\n******");
