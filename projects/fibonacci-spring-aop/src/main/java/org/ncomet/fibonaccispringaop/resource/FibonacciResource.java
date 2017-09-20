@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.MessageFormat;
+
 @RestController
 @RequestMapping("/fibonacci/{n}")
 public class FibonacciResource {
@@ -30,6 +32,11 @@ public class FibonacciResource {
         stopWatch2.start();
         fibonacciService.compute(n);
         stopWatch2.stop();
-        return ResponseEntity.ok("fibonacci(" + n + ") = " + result + "<br/> The first time, it took " + stopWatch.getLastTaskTimeMillis() + "ms <br/>The second time, " + stopWatch2.getLastTaskTimeMillis() + "ms");
+        return ResponseEntity.ok(MessageFormat.format(
+                "fibonacci({0}) = {1}<br/> The first time, it took {2}ms <br/>The second time, {3}ms",
+                n,
+                result,
+                stopWatch.getLastTaskTimeMillis(),
+                stopWatch2.getLastTaskTimeMillis()));
     }
 }
