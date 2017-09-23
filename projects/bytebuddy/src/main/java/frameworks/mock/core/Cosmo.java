@@ -12,14 +12,14 @@ import static net.bytebuddy.matcher.ElementMatchers.returns;
 public class Cosmo {
 
 
-    public <T> T mock(Class<T> classToMock) {
+    public <T> T mock(Class<T> typeToMock) {
         try {
             return new ByteBuddy()
-                    .subclass(classToMock)
+                    .subclass(typeToMock)
                     .method(not(isNative().or(isEquals()).or(returns(TypeDescription.VOID))))
                     .intercept(FixedValue.nullValue())
                     .make()
-                    .load(classToMock.getClassLoader())
+                    .load(typeToMock.getClassLoader())
                     .getLoaded()
                     .newInstance();
         } catch (InstantiationException | IllegalAccessException e) {
