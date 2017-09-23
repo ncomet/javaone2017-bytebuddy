@@ -9,13 +9,16 @@ import interceptors.StrangeFeelingInterceptor;
 import net.bytebuddy.ByteBuddy;
 
 import net.bytebuddy.dynamic.loading.ClassLoadingStrategy;
+import net.bytebuddy.implementation.FixedValue;
 import org.mockito.Mockito;
 import org.testng.annotations.Test;
 
 import frameworks.mock.Cosmockpolitan;
 import interceptors.GetterSetterInterceptor;
 
+import java.lang.reflect.Modifier;
 import java.util.Collections;
+import java.util.Date;
 
 public class BuddyTests {
 
@@ -95,5 +98,24 @@ public class BuddyTests {
         assertThat(cat.getStomach()).containsExactly("NotToday");
 
     }
+
+    @Test
+    public void shouldCreateAnActress() throws Exception {
+
+        Actor actor = new ByteBuddy()
+                .subclass(Actor.class)
+                .name("domain.FemaleActress")
+                .method(named("characterName")).intercept(value("Daenerys Targaryen"))
+                .method(named("firstName")).intercept(value("Emilia"))
+                .method(named("lastName")).intercept(value("Clarke"))
+                .defineField("favoriteActor", Actor.class, Modifier.PUBLIC)
+                .make().load(getClass().getClassLoader())
+                .getLoaded()
+                .newInstance();
+
+        System.out.println(actor.getClass().getSimpleName());
+
+    }
+
 
 }
