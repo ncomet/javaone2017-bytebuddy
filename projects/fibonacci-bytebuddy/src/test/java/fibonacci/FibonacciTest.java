@@ -15,6 +15,7 @@ public class FibonacciTest {
     public void setUp() throws Exception {
         Memoization memoization = new Memoization();
         fibonacci = memoization.of(Fibonacci.class);
+        //fibonacci = new Fibonacci();
     }
 
     @Test(invocationCount = 50)
