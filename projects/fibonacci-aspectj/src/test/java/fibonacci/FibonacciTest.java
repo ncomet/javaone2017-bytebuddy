@@ -21,7 +21,7 @@ public class FibonacciTest {
         long result = fibonacci.compute(42);
         long end = System.nanoTime();
 
-        System.out.println("="+result);
+        System.out.println("fibo(42)="+result);
 
         total += (end - start);
     }
