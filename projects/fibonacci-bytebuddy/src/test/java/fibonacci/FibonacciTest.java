@@ -21,9 +21,11 @@ public class FibonacciTest {
     @Test(invocationCount = 50)
     public void fiboTime() throws Exception {
         long start = System.nanoTime();
-        long fibo = fibonacci.compute(42);
+        long res = fibonacci.compute(42);
         long end = System.nanoTime();
-        // an estimated time in ns
+
+        System.out.println("="+res);
+
         total += (end - start);
     }
 
