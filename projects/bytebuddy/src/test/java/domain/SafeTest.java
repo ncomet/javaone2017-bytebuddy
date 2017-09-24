@@ -7,11 +7,6 @@ import org.testng.annotations.Test;
 import frameworks.security.impl.BuddySafe;
 import frameworks.security.interfaces.Safe;
 
-/**
- * LECTRA
- * SafeTest class
- * @author n.comet
- */
 public class SafeTest {
 
     @Test

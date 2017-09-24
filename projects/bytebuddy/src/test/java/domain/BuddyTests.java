@@ -1,41 +1,22 @@
 package domain;
 
+import frameworks.mock.Cosmockpolitan;
+import interceptors.GetterSetterInterceptor;
+import net.bytebuddy.ByteBuddy;
+import org.testng.annotations.Test;
+
+import java.lang.reflect.Modifier;
+
 import static net.bytebuddy.implementation.FixedValue.value;
 import static net.bytebuddy.implementation.MethodDelegation.to;
 import static net.bytebuddy.matcher.ElementMatchers.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import interceptors.StrangeFeelingInterceptor;
-import net.bytebuddy.ByteBuddy;
-
-import net.bytebuddy.dynamic.loading.ClassLoadingStrategy;
-import net.bytebuddy.implementation.FixedValue;
-import org.mockito.Mockito;
-import org.testng.annotations.Test;
-
-import frameworks.mock.Cosmockpolitan;
-import interceptors.GetterSetterInterceptor;
-
-import java.lang.reflect.Modifier;
-import java.util.Collections;
-import java.util.Date;
-
 public class BuddyTests {
 
     @Test
-    public void java() {
-        final Cat cat = new Cat();
-        cat.setName("Garfield");
-        cat.feed("lasagna");
-        cat.feed("moar lasagna");
-
-        assertThat(cat.getStomach()).containsOnly("lasagna", "moar lasagna");
-        assertThat(cat.getName()).isEqualTo("Garfield");
-    }
-
-    @Test
     public void buddyIntro() throws Exception {
-        final Cat cat = new ByteBuddy()
+        Cat cat = new ByteBuddy()
                 .subclass(Cat.class)
                 /*.method(named("getStomach"))
                 .intercept(to(StrangeFeelingInterceptor.class))*/
@@ -54,7 +35,7 @@ public class BuddyTests {
     @Test
     public void interceptors() throws Exception {
 
-        final Cat cat = new ByteBuddy()
+        Cat cat = new ByteBuddy()
                 .subclass(Cat.class)
                 .method(isGetter().or(isSetter()))
                 .intercept(to(GetterSetterInterceptor.class))
@@ -68,35 +49,12 @@ public class BuddyTests {
     }
 
     @Test
-    public void mockito() throws Exception {
-        final Cat mock = Mockito.mock(Cat.class);
-
-        mock.setName("Felix");
-
-        assertThat(mock.getName()).isNull();
-    }
-
-    @Test
     public void cosmockpolitan() throws Exception {
-        final Cat mock = Cosmockpolitan.mock(Cat.class);
+        Cat mock = Cosmockpolitan.mock(Cat.class);
 
         mock.setName("Felix");
 
         assertThat(mock.getName()).isNull();
-    }
-
-    @Test
-    public void classloadingStrategy() throws Exception {
-
-        final Cat cat = new ByteBuddy()
-                .subclass(Cat.class)
-                .method(named("getStomach"))
-                .intercept(value(Collections.singleton("NotToday")))
-                .make().load(getClass().getClassLoader(), ClassLoadingStrategy.Default.WRAPPER)
-                .getLoaded().newInstance();
-
-        assertThat(cat.getStomach()).containsExactly("NotToday");
-
     }
 
     @Test
