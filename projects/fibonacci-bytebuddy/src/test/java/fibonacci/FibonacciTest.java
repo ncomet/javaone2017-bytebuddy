@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 public class FibonacciTest {
 
     private long total = 0L;
-
     private Fibonacci fibonacci;
 
     @BeforeClass
