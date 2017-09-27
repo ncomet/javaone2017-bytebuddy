@@ -25,18 +25,25 @@ public class FibonacciResource {
     @GetMapping
     public ResponseEntity<String> fibo(@PathVariable int n) {
         StopWatch stopWatch = new StopWatch();
+
         stopWatch.start();
         long result = fibonacciService.compute(n);
         stopWatch.stop();
-        StopWatch stopWatch2 = new StopWatch();
-        stopWatch2.start();
-        fibonacciService.compute(n);
-        stopWatch2.stop();
+
+        long duration = stopWatch.getLastTaskTimeMillis();
         return ResponseEntity.ok(MessageFormat.format(
-                "fibonacci({0}) = {1}<br/> The first time, it took {2}ms <br/>The second time, {3}ms",
+                "fibonacci({0}) = {1}<br/> It took <font color=\"red\">{2}</font>ms <br/><br/>",
                 n,
                 result,
-                stopWatch.getLastTaskTimeMillis(),
-                stopWatch2.getLastTaskTimeMillis()));
+                duration)
+        + commentary(duration));
+    }
+
+
+
+
+
+    private String commentary(long duration) {
+        return duration > 1L ? "A bit <i>long</i> don't you think?" : "Woaw that was <i>fast</i> !";
     }
 }
