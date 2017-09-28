@@ -5,7 +5,7 @@
 <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
 <meta content="Asciidoctor 1.5.0" name="generator" />
 <meta content="Nicolas Comet" name="author" />
-<title>Byte Buddy : la génération de bytecode facile !</title>
+<title>Byte Buddy : bytecode gen made easy !</title>
 <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet" />
 <style>
 .conum { display: inline-block; color: white !important; background-color: #222222; -webkit-border-radius: 100px; border-radius: 100px; text-align: center; width: 1.2em; height: 1.2em; font-size: 0.9em; font-weight: bold; line-height: 1.2; font-family: Arial, sans-serif; font-style: normal; position: relative; top: -0.1em; }
@@ -120,23 +120,23 @@ table.CodeRay td.code>pre{padding:0}
 <body class="article">
 <div class="deck-container">
 <section class="slide" id="title-slide">
-<h1><code>Byte Buddy</code> : la génération de bytecode facile !</h1>
+<h1><code>Byte Buddy</code> : bytecode gen made <em>easy</em> !</h1>
 <span id="author">Nicolas Comet</span>
 <br />
-<span id="email"><a href="mailto:nicolas.comet@gmail.com">nicolas.comet@gmail.com</a></span>
+<span id="email"><a href="mailto:n.comet@lectra.com">n.comet@lectra.com</a></span>
 <br />
 </section>
 <div id="preamble">
 <div class="sectionbody">
 <div class="imageblock" style="float: right">
 <div class="content">
-<img alt="jug summer" height="100" src="images/jug-summer.png" width="bandeau" />
+<img alt="javaone logo" height="100" src="images/javaone-logo.png" width="bandeau" />
 </div>
 </div>
 </div>
 </div>
-<section class="slide" id="_qui_je_suis">
-<h2>Qui je suis</h2>
+<section class="slide" id="_about_me">
+<h2>About me</h2>
 <div class="imageblock" style="float: right">
 <div class="content">
 <img alt="avatar" src="images/avatar.jpg" />
@@ -146,18 +146,17 @@ table.CodeRay td.code>pre{padding:0}
 <span class="icon"><i class="icon-github"></i></span> <a class="bare" href="https://github.com/ncomet">https://github.com/ncomet</a></p></div>
 <div class="ulist">
 <ul>
-<li>Développeur depuis 7 ans</li>
+<li>Developer since 7 years</li>
 </ul>
 </div>
 <div class="imageblock" style="float: right">
 <div class="content">
-<img alt="lectra" src="images/lectra.gif" />
+<img alt="logolectra130" src="images/logolectra130.png" />
 </div>
 </div>
 <div class="ulist">
 <ul>
-<li>Ingénieur d&#8217;Études R&amp;D chez Lectra,
-leader mondial des solutions dédiées à l&#8217;industrie textile (machines et logiciels)</li>
+<li>Software R&amp;D Engineer @Lectra, worldwide leader in integrated softwares, machines and cloud services for soft material industries</li>
 </ul>
 </div>
 <div class="imageblock" style="float: right">
@@ -167,7 +166,7 @@ leader mondial des solutions dédiées à l&#8217;industrie textile (machines et
 </div>
 <div class="ulist">
 <ul>
-<li>Speaker &amp; Membre du Bordeaux JUG</li>
+<li>Speaker &amp; Member of Bordeaux JUG</li>
 </ul>
 </div>
 </section>
@@ -175,27 +174,129 @@ leader mondial des solutions dédiées à l&#8217;industrie textile (machines et
 <h2>Lectra</h2>
 <div class="imageblock">
 <div class="content">
-<img alt="lectra recrute" src="images/lectra-recrute.png" />
+<img alt="lectra hires" src="images/lectra-hires.png" />
 </div>
 </div>
 </section>
-<section class="slide" id="_la_petite_histoire">
-<h2>La petite histoire</h2>
+<section class="slide" id="_how_it_all_began">
+<h2>How it all began</h2>
 <div class="paragraph"><p><em>"Making Java more dynamic"</em> @Devoxx France 2015</p></div>
 <div class="paragraph"><p><span class="icon"><i class="icon-external-link"></i></span> <a class="bare" href="https://youtu.be/vjv4idwQL7k">https://youtu.be/vjv4idwQL7k</a></p></div>
 <div class="imageblock">
 <div class="content">
-<img alt="rwinterhalter" src="images/rwinterhalter.png" />
+<img alt="rafaelwinterhalter" src="images/rafaelwinterhalter.png" />
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img alt="devoxx" src="images/devoxx.png" />
+<img alt="rafael winterhalter" src="images/rafael-winterhalter.jpg" />
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="150" src="images/java-champion.png" width="150" />
 </div>
 </div>
 </section>
-<section class="slide" id="_bytecode">
-<h2>Bytecode ?</h2>
+<section class="slide" id="_cross_cutting_concerns">
+<h2>Cross Cutting Concerns</h2>
+<div class="ulist">
+<ul>
+<li>Non business/domain related</li>
+<li>Orthogonal preoccupations</li>
+</ul>
+</div>
+<div class="imageblock slide">
+<div class="content">
+<img alt="what" src="images/what.gif" />
+</div>
+</div>
+</section>
+<section class="slide" id="_examples">
+<h2>Examples</h2>
+<div class="ulist">
+<ul>
+<li>Logging <span class="icon"><i class="icon-list"></i></span></li>
+<li>Caching <span class="icon"><i class="icon-dashboard"></i></span></li>
+<li>Monitoring <span class="icon"><i class="icon-bar-chart"></i></span></li>
+<li>Data validation <span class="icon"><i class="icon-check"></i></span></li>
+<li>Real time constraints <span class="icon"><i class="icon-gears"></i></span></li>
+<li>Persistence <span class="icon"><i class="icon-save"></i></span></li>
+<li>Transactions <span class="icon"><i class="icon-flag-checkered"></i></span></li>
+<li>&#8230;&#8203;</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_adding_behavior">
+<h2>Adding behavior</h2>
+<div class="ulist">
+<ul>
+<li>Transparent</li>
+<li>Non intrusive</li>
+<li>Strongly typed</li>
+<li>Regardless of type</li>
+<li>Lightweight</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="__some_solutions">
+<h2>(Some) solutions</h2>
+<div class="ulist">
+<ul>
+<li>Aspect Oriented Programming (AOP)</li>
+<li>Bytecode generation</li>
+<li>Reflection</li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_reflection">
+<h2>Reflection</h2>
+<div class="paragraph"><p><code>java.lang.reflect</code></p></div>
+<div class="paragraph"><p>Reading Type metamodel at runtime</p></div>
+<div class="paragraph"><p>Calling constructors, methods, access attributes (sometimes unsafely)</p></div>
+<div class="paragraph slide"><p>Mostly about <em>Introspection</em></p></div>
+<div class="paragraph slide"><p>It has a cost (JIT is useless)</p></div>
+</section>
+<section class="slide" id="_aop_concepts">
+<h2>AOP concepts</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="concerns" src="images/concerns.png" />
+</div>
+</div>
+<hr />
+<div class="imageblock">
+<div class="content">
+<img alt="aop" src="images/aop.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_aop">
+<h2>AOP</h2>
+<div class="ulist">
+<ul>
+<li><strong>Aspect</strong> Description of a cross cutting concern</li>
+<li><strong>Join point</strong> A point during the execution of code (method execution, attribute access)</li>
+<li><strong>Advice</strong> Action taken by an aspect at a particular join point</li>
+<li><strong>Pointcut</strong> A regular expression that matches join points.</li>
+</ul>
+</div>
+<div class="imageblock slide">
+<div class="content">
+<img alt="ajc" src="images/ajc.png" width="600" />
+</div>
+</div>
+</section>
+<section class="slide" id="_java_bytecode">
+<h2>Java Bytecode</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="bytecode" src="images/bytecode.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_bytecode_generation">
+<h2>Bytecode generation</h2>
 <div class="imageblock">
 <div class="content">
 <img alt="diagramme" height="493" src="images/diag.png" width="875" />
@@ -210,9 +311,163 @@ leader mondial des solutions dédiées à l&#8217;industrie textile (machines et
 </div>
 </div>
 </section>
+<section class="slide" id="_the_famous_case">
+<h2>The famous case</h2>
+<div class="ulist">
+<ul>
+<li>n ∈ ℕ</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="def" src="images/fibodef.gif" width="800" />
+</div>
+</div>
+</section>
+<section class="slide" id="_the_famous_case_2">
+<h2>The famous case</h2>
+<div class="ulist">
+<ul>
+<li>Call tree</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="fibotree150" src="images/fibotree150.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_caching">
+<h2>Caching</h2>
+<div class="ulist">
+<ul>
+<li>Memoization</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img alt="fibomemoized" src="images/fibomemoized.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_some_code">
+<h2>Some code !</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="demo" src="images/demo.png" />
+</div>
+</div>
+</section>
+<section class="slide" id="_perf_comparison">
+<h2>Perf comparison</h2>
+<div class="paragraph"><p>Calling <code>fibonacci(42)</code> (average results)</p></div>
+<table class="tableblock frame-all grid-all" style="width:60%">
+<colgroup>
+<col style="width:50%" />
+<col style="width:50%" />
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Version</th>
+<th class="tableblock halign-left valign-top">Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Raw Fibonacci</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>1123.658</code> ms</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AspectJ (compile time)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.013</code> ms</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Byte Buddy (runtime)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>0.689</code> ms</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spring AOP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>2123</code> ms (first time, then instant)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide" id="_under_the_hood">
+<h2>Under the hood</h2>
+<div class="ulist">
+<ul>
+<li><p>
+AspectJ<div class="ulist">
+<ul>
+<li>compile time weaving (<code>ajc</code>)</li>
+<li>post-compile weaving (on classes and jars)</li>
+<li>load time weaving (agent)</li>
+<li>intercept everything</li>
+</ul>
+</div></p></li>
+<li><p>
+Spring AOP<div class="ulist">
+<ul>
+<li><p>
+proxy-based<div class="ulist">
+<ul>
+<li>Interface &#8594; Java dynamic proxy</li>
+<li>else CGLIB bytecode generated proxy</li>
+</ul>
+</div></p></li>
+<li>good AspectJ integration if you need more</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_pros_cons">
+<h2>Pros &amp; Cons</h2>
+<div class="ulist">
+<ul>
+<li><p>
+AspectJ<div class="ulist">
+<ul>
+<li><span class="icon"><i class="icon-minus-sign"></i></span> Setup</li>
+<li><span class="icon"><i class="icon-minus-sign"></i></span> DSL to learn</li>
+<li><span class="icon"><i class="icon-plus-sign"></i></span> Performance</li>
+<li><span class="icon"><i class="icon-plus-sign"></i></span> Non intrusive</li>
+<li><span class="icon"><i class="icon-plus-sign"></i></span> Span</li>
+</ul>
+</div></p></li>
+<li><p>
+Spring AOP<div class="ulist">
+<ul>
+<li><span class="icon"><i class="icon-minus-sign"></i></span> Not really AOP</li>
+<li><span class="icon"><i class="icon-minus-sign"></i></span> Component&#8217;s methods only</li>
+<li><span class="icon"><i class="icon-minus-sign"></i></span> / <span class="icon"><i class="icon-plus-sign"></i></span> Framework</li>
+<li><span class="icon"><i class="icon-plus-sign"></i></span> Spring integration</li>
+<li><span class="icon"><i class="icon-plus-sign"></i></span> Migration to AspectJ</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
+<section class="slide" id="_pros_cons_2">
+<h2>Pros &amp; Cons</h2>
+<div class="ulist">
+<ul>
+<li><p>
+Byte Buddy<div class="ulist">
+<ul>
+<li><span class="icon"><i class="icon-minus-sign"></i></span> No compile time</li>
+<li><span class="icon"><i class="icon-plus-sign"></i></span> Library</li>
+<li><span class="icon"><i class="icon-plus-sign"></i></span> Java DSL API</li>
+<li><span class="icon"><i class="icon-plus-sign"></i></span> Performance</li>
+<li><span class="icon"><i class="icon-plus-sign"></i></span> Agent writing help</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
+</section>
 <section class="slide" id="_byte_buddy">
 <h2>Byte Buddy</h2>
-<div class="paragraph"><p>Open Source (license Apache), utilisé par <code>Mockito</code>, <code>Hibernate</code>, <code>Google Bazle</code>, <a href="https://github.com/raphw/byte-buddy/wiki/Projects-using-Byte-Buddy">et d&#8217;autres</a></p></div>
+<div class="paragraph"><p>Open Source (license Apache), used by <code>Mockito</code>, <code>Hibernate</code>, <code>Google Bazle</code>, <a href="https://github.com/raphw/byte-buddy/wiki/Projects-using-Byte-Buddy">and others</a></p></div>
 <div class="imageblock">
 <div class="content">
 <img alt="Stars" src="images/stars-github.png" />
@@ -222,25 +477,30 @@ leader mondial des solutions dédiées à l&#8217;industrie textile (machines et
 <div class="paragraph"><p><span class="icon"><i class="icon-external-link"></i></span> <a class="bare" href="http://bytebuddy.net">http://bytebuddy.net</a></p></div>
 <div class="ulist">
 <ul>
-<li class="slide">Facilité d&#8217;utilisation (comparé ASM, BCEL)</li>
-<li class="slide">R/W bytecode de manière lisible et instrumentée (builder pattern)</li>
-<li class="slide">Concevoir des petits frameworks/librairies</li>
-<li class="slide">Hors du framework, tout reste type-safe. (user type enhancement)</li>
-<li class="slide">Séparation des préoccupations (logging, caches, sécurité&#8230;&#8203;)</li>
+<li>Light</li>
+<li>Easy to use (compared to CGLIB, BCEL, ASM)</li>
 </ul>
 </div>
 </section>
-<section class="slide" id="_démo">
-<h2>Démo</h2>
+<section class="slide" id="_asm_visitor">
+<h2>ASM Visitor</h2>
+<div class="imageblock">
+<div class="content">
+<img alt="asm visitor" src="images/asm-visitor.jpg" />
+</div>
+</div>
+</section>
+<section class="slide" id="_demo">
+<h2>Demo</h2>
 <div class="imageblock">
 <div class="content">
 <img alt="demo" src="images/demo.png" />
 </div>
 </div>
 <div class="paragraph"><p>Slides :</p></div>
-<div class="paragraph"><p><span class="icon"><i class="icon-external-link"></i></span> <a class="bare" href="https://ncomet.github.io/jugsummercamp2017-bytebuddy/bytebuddy.html">https://ncomet.github.io/jugsummercamp2017-bytebuddy/bytebuddy.html</a></p></div>
+<div class="paragraph"><p><span class="icon"><i class="icon-external-link"></i></span> <a class="bare" href="https://ncomet.github.io/javaone2017-bytebuddy/bytebuddy.html">https://ncomet.github.io/javaone2017-bytebuddy/bytebuddy.html</a></p></div>
 <div class="paragraph"><p>Sources :</p></div>
-<div class="paragraph"><p><span class="icon"><i class="icon-github"></i></span> <a class="bare" href="https://github.com/ncomet/jugsummercamp2017-bytebuddy">https://github.com/ncomet/jugsummercamp2017-bytebuddy</a></p></div>
+<div class="paragraph"><p><span class="icon"><i class="icon-github"></i></span> <a class="bare" href="https://github.com/ncomet/javaone2017-bytebuddy">https://github.com/ncomet/javaone2017-bytebuddy</a></p></div>
 </section>
 <div aria-role="navigation">
 <a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
