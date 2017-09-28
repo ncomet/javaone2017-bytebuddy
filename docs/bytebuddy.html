@@ -243,9 +243,9 @@ table.CodeRay td.code>pre{padding:0}
 <h2>(Some) solutions</h2>
 <div class="ulist">
 <ul>
+<li>Reflection</li>
 <li>Aspect Oriented Programming (AOP)</li>
 <li>Bytecode generation</li>
-<li>Reflection</li>
 </ul>
 </div>
 </section>
@@ -439,23 +439,16 @@ AspectJ<div class="ulist">
 Spring AOP<div class="ulist">
 <ul>
 <li><span class="icon"><i class="icon-minus-sign"></i></span> Not really AOP</li>
-<li><span class="icon"><i class="icon-minus-sign"></i></span> Component&#8217;s methods only</li>
+<li><span class="icon"><i class="icon-minus-sign"></i></span> Component&#8217;s public methods only</li>
 <li><span class="icon"><i class="icon-minus-sign"></i></span> / <span class="icon"><i class="icon-plus-sign"></i></span> Framework</li>
 <li><span class="icon"><i class="icon-plus-sign"></i></span> Spring integration</li>
 <li><span class="icon"><i class="icon-plus-sign"></i></span> Migration to AspectJ</li>
 </ul>
 </div></p></li>
-</ul>
-</div>
-</section>
-<section class="slide" id="_pros_cons_2">
-<h2>Pros &amp; Cons</h2>
-<div class="ulist">
-<ul>
 <li><p>
 Byte Buddy<div class="ulist">
 <ul>
-<li><span class="icon"><i class="icon-minus-sign"></i></span> No compile time</li>
+<li><span class="icon"><i class="icon-minus-sign"></i></span> / <span class="icon"><i class="icon-plus-sign"></i></span> No compile time</li>
 <li><span class="icon"><i class="icon-plus-sign"></i></span> Library</li>
 <li><span class="icon"><i class="icon-plus-sign"></i></span> Java DSL API</li>
 <li><span class="icon"><i class="icon-plus-sign"></i></span> Performance</li>
@@ -479,6 +472,7 @@ Byte Buddy<div class="ulist">
 <ul>
 <li>Light</li>
 <li>Easy to use (compared to CGLIB, BCEL, ASM)</li>
+<li>Become a library writer</li>
 </ul>
 </div>
 </section>
@@ -501,6 +495,26 @@ Byte Buddy<div class="ulist">
 <div class="paragraph"><p><span class="icon"><i class="icon-external-link"></i></span> <a class="bare" href="https://ncomet.github.io/javaone2017-bytebuddy/bytebuddy.html">https://ncomet.github.io/javaone2017-bytebuddy/bytebuddy.html</a></p></div>
 <div class="paragraph"><p>Sources :</p></div>
 <div class="paragraph"><p><span class="icon"><i class="icon-github"></i></span> <a class="bare" href="https://github.com/ncomet/javaone2017-bytebuddy">https://github.com/ncomet/javaone2017-bytebuddy</a></p></div>
+</section>
+<section class="slide" id="_conclusion">
+<h2>Conclusion</h2>
+<div class="ulist">
+<ul>
+<li><p>
+Adding behavior<div class="ulist">
+<ul>
+<li>AOP &#8594; Implementing multiple cross cutting concerns</li>
+<li>Byte Buddy &#8594; Writing libraries/frameworks or agents</li>
+</ul>
+</div></p></li>
+<li><p>
+Discovering at runtime<div class="ulist">
+<ul>
+<li>Reflexion &#8594; Custom serialization, <em>nasty</em> things (setting private fields&#8230;&#8203;)</li>
+</ul>
+</div></p></li>
+</ul>
+</div>
 </section>
 <div aria-role="navigation">
 <a class="deck-prev-link" href="#" title="Previous">&#8592;</a>
