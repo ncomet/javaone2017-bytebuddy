@@ -2,6 +2,7 @@ package domain;
 
 import frameworks.mock.Cosmockpolitan;
 import interceptors.GetterSetterInterceptor;
+import interceptors.StrangeFeelingInterceptor;
 import net.bytebuddy.ByteBuddy;
 import org.testng.annotations.Test;
 
@@ -71,7 +72,7 @@ public class BuddyTests {
                 .getLoaded()
                 .newInstance();
 
-        System.out.println(actor.getClass().getSimpleName());
+        System.out.println(actor.greet());
 
     }
 
